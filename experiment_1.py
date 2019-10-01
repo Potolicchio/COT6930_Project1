@@ -27,7 +27,7 @@ def main():
 
     print("Generating a random string to be encrypted using RSA...", sep="")
     message = exp.generate_random_string(message_length)
-    print("Test Phrase =" , message, "\n", sep="")
+    print("Test Phrase = ", message, "\n", sep="")
 
     print("Encrypting test phrase using RSA...", sep="")
     ciphertext = rsa.rsa_encryption(message, public_key)
