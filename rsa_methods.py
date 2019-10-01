@@ -85,6 +85,7 @@ def mul_inv(e, phi):
         d = s % phi
         return d
 
+
 # Generates the public key tuple and private key for the Rivest-Shamir-Adelman encryption scheme.
 def rsa_key_generation(bit_length):
     bit_length = int(bit_length)
@@ -116,7 +117,7 @@ def rsa_encryption(message, rsa_public_key):
 
 
 # Decrypts ASCII ciphertext that was encrypted using the Rivest-Shamir-Adelson public-key encryption scheme.
-def rsa_slow_decryption(ciphertext, rsa_public_key, rsa_private_key):
+def rsa_no_crt_decryption(ciphertext, rsa_public_key, rsa_private_key):
     c_list = ciphertext
     c_len = len(c_list)
     n, e = rsa_public_key
@@ -134,7 +135,7 @@ def rsa_slow_decryption(ciphertext, rsa_public_key, rsa_private_key):
 
 # Decrypts ASCII ciphertext that was encrypted using the Rivest-Shamir-Adelson public-key encryption scheme.
 # Decryption accelerated using the Chinese Remainder Theorem.
-def rsa_fast_decryption(ciphertext, rsa_private_key):
+def rsa_crt_decryption(ciphertext, rsa_private_key):
     c_list = ciphertext
     c_len = len(c_list)
     p, q, d = rsa_private_key
